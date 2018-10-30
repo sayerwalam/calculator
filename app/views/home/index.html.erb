@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator-HOME</title>
+    <%= csrf_meta_tags %>
+     <script type="text/javascript">
+    		function del() {
+    	
+    			var remove = document.getElementById('answer').value;
+    			var add = remove.slice(0,-1);
+    			document.getElementById('answer').value = add; 
+    		};
+    </script>
+    <style type="text/css">
+    	.button,.myButton{
+    		background-color: #484849;
+    		font-weight: bold;
+    		font-family: Arial Black;
+    		width: 100px;
+    	}
+    	table{
+    		background-color : 515161;
+    		margin-left: 30%;
+    		padding-right: 10px;
+    		text-align: center;
+    	}
+    	.myButton{
+    		height: 100px;
+    		font-style: italic;
+    		font-family: Algerian;
+    		font-size: 20px;
+
+    	}
+    </style>
+    </head>
+  </head>
+  <body bgcolor="#A3A3A6">
+<div class="head" style="text-align: center;">
+	<h1 style="color: #000934;">Welcome to PEDMAS Calculator</h1>
+	<p style="color: #15225F;"> 
+		Here you can perform basic calculation using the PEDMAS rules :) <br/>
+		 <h3 style="color: #15225F;"> Enjoy your Calculations!!!!!! </h3>
+	</p>
+</div> <br/> <br/>
+<div class="body">
+	<form name="calculator" method="get">
+	<table border="5" cellpadding="15" >
+		<tr>
+			<td colspan="3"> <input type="text" id="answer" name="answer" value="<%= "#{ params['result']}" %>" readonly="true" style="width:350px; height: 50px; "> </td>
+			<td rowspan="2"><%= button_to "SUBMIT",home_index_path, :class => "myButton" %></td>
+		</tr>
+		<tr>
+			<td><input type="button" class="button"  value = "7" onclick="document.calculator.answer.value += '7'" onkeypress="7"> </td>
+			<td><input type="button" class="button" value = "8" onclick="document.calculator.answer.value += '8'"> </td>
+			<td><input type="button" class="button"  value = "9" onclick="document.calculator.answer.value += '9'"></td>
+		</tr>
+		<tr>
+			<td><input type="button" class="button"  value = "4" onclick="document.calculator.answer.value += '4'"></td>
+			<td><input type="button" class="button"  value = "5" onclick="document.calculator.answer.value += '5'"></td>
+			<td><input type="button" class="button"  value = "6" onclick="document.calculator.answer.value += '6'"></td>
+			<td><input type="button" class="button"  value = "/" onclick="document.calculator.answer.value += '/'"></td>
+		</tr>
+		<tr>
+			<td><input type="button" class="button"  value = "1" onclick="document.calculator.answer.value += '1'"></td>
+			<td><input type="button" class="button"  value = "2" onclick="document.calculator.answer.value += '2'"></td>
+			<td><input type="button" class="button"  value = "3" onclick="document.calculator.answer.value += '3'"></td>
+			<td><input type="button" class="button"  value = "*" onclick="document.calculator.answer.value += '*'"></td>
+		</tr>
+		<tr>
+			<td><input type="button" class="button"  value = "0" onclick="document.calculator.answer.value += '0'"></td>
+			<td><input type="button" class="button"  value = "." onclick="document.calculator.answer.value += '.'"></td>
+			<td><input type="button" class="button"  value = "-" onclick="document.calculator.answer.value += '-'"></td>
+			<td><input type="button" class="button"  value = "+" onclick="document.calculator.answer.value += '+'"></td>
+		</tr>
+		<tr>
+			<td><input type="button" class="button"  value = "(" onclick="document.calculator.answer.value += '('"></td>
+			<td><input type="button" class="button"  value = ")" onclick="document.calculator.answer.value += ')'"></td>
+			<td><input type="button" class="button" value = "Backspace" onclick = "del()" ></td>
+			<td><input type="button" class="button" value = "CLEAR" onclick = "document.calculator.answer.value = ' '" ></td>
+		</tr>
+	</table>
+</form>
+</div> 
+</body>
